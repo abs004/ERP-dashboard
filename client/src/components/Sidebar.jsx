@@ -13,6 +13,10 @@ const navItems = [
 function Sidebar() {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    navigate("/");
+  };
+
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
@@ -36,6 +40,12 @@ function Sidebar() {
             {item.label}
           </NavLink>
         ))}
+
+        <div className="nav-section-label" style={{ marginTop: 16 }}>Account</div>
+        <button className="nav-item nav-logout" onClick={handleLogout}>
+          <span className="nav-icon">🚪</span>
+          Logout
+        </button>
       </nav>
 
       <div className="sidebar-footer">
@@ -48,7 +58,7 @@ function Sidebar() {
           <button
             className="logout-btn"
             title="Logout"
-            onClick={() => navigate("/")}
+            onClick={handleLogout}
           >
             ⎋
           </button>
